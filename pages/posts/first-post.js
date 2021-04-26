@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import Head from 'next/head'
+import Layout from '../../components/layout'
 
 export default function FirstPost(){
     return (
-        <>
+        <Layout>
         <Head>
             <title>Post Page</title>
         </Head>
@@ -13,13 +14,14 @@ export default function FirstPost(){
             <a>Back Home</a>
         </Link>
         
-        <Image
-          src="/public/images/geoface.jpg" // Route of the image file
+        
+        {/* <Image
+          src="/public/images/favicon.ico" // Route of the image file
           height={144} // Desired size with correct aspect ratio
           width={144} // Desired size with correct aspect ratio
           alt="George"
-        />
-        </>
+        /> */}
+        </Layout>
 
     )
    
