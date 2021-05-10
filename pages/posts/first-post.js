@@ -5,14 +5,20 @@ import Layout from '../../components/layout'
 
 export default function FirstPost(){
     return (
+        <>
         <Layout>
         <Head>
             <title>Post Page</title>
         </Head>
-        <h1>This is my first Post</h1>
+        <h1 className="">This is my first Post</h1>
 
+        <Link href="/">
+        <a className="text-blue-900">Back home</a>
+        </Link>
+        
     
         </Layout>
+        </>
 
     )
    

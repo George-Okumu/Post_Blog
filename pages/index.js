@@ -22,15 +22,16 @@ export default function Home() {
           expertise in scheduling projects, enhancing designs, learning and
           verifying code. Prepared to offer my skills and abilities to the team.
         </p>
-
+        <br/>
         <p>
-          For more information about my projects, here is my portfolio link: <br/> <a href="https://george-okumu.github.io/myPortfolio/">{name} Portfolio</a>
+          For more information about my projects, here is my portfolio link: <br/> <a className="text-blue-900" href="https://george-okumu.github.io/myPortfolio/">{name} Portfolio</a>
         </p>
       </section>
+      <br/>
 
       <footer>
   
-        <a href="/posts/first-post">Check my Posts</a>
+        <a className="text-blue-900 pt-5" href="/posts/first-post">Check my Posts</a>
 
       </footer>
     </Layout>
