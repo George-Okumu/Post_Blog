@@ -40,7 +40,6 @@ return (    <div className={styles.container}>
         </>
       ) : (
         <>
-          <Link href="/">
             <a>
               <Image
                 priority
@@ -51,11 +50,9 @@ return (    <div className={styles.container}>
                 alt={name}
               />
             </a>
-          </Link>
           <h2 className={styles.headingLg}>
-            <Link href="/">
               <a className={styles.colorInherit}>{name}</a>
-            </Link>
+            
           </h2>
         </>
       )}
