@@ -1,69 +1,39 @@
 import Head from "next/head";
 import Link from "next/link";
+import Layout from "../components/layout";
 import styles from "../styles/Home.module.css";
+import { siteTitle } from "../components/layout";
+
+const name = "George";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <Layout>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>{siteTitle}</title>
       </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Read{" "}
-          <Link href="/posts/first-post">
-            <a>Visit new posts here</a>
-          </Link>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.js</code>
+      <section>
+        <p>Hello, this is {name} </p>
+        <p>
+          <b>{name}</b> is an innovative and proactive Front-End Developer, successful in developing
+          elegant, groundbreaking website and application designs for demanding
+          clients. Talented in project management, team leadership and
+          independent problem-solving. <br/>Highly organized multitasking with
+          expertise in scheduling projects, enhancing designs, learning and
+          verifying code. Prepared to offer my skills and abilities to the team.
         </p>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+        <p>
+          For more information about my projects, here is my portfolio link: <br/> <a href="https://george-okumu.github.io/myPortfolio/">{name} Portfolio</a>
+        </p>
+      </section>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+      <footer>
+  
+        <a href="/posts/first-post">Check my Posts</a>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
       </footer>
-    </div>
+    </Layout>
+
   );
 }
