@@ -2,12 +2,16 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Head from "next/head";
 import { siteTitle } from "../components/layout";
+import axios from "axios";
 
 const name = "MealDB";
 const name2 =
   "Welcome to Random Meal DB, where you get to know recipe instructions";
 
-export default function MealDb({ meals, description }) {
+export default function Mealaxios({ meals, error }) {
+  if (error) {
+    return <div>An error occurred. {error.message}</div>;
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -26,7 +30,7 @@ export default function MealDb({ meals, description }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>
-        {MealDb ? (
+        {Mealaxios ? (
           <>
             <Image
               priority
@@ -58,13 +62,22 @@ export default function MealDb({ meals, description }) {
       <h1 className={styles.heading2Xl}>{name2}</h1>
       {/* Used map to itterate through the meals array response,  */}
       {meals.map((result) => (
-        <h1>Meal Name: {result.strMeal}</h1>
+        <div>
+          <h1 key="{meals.idMeal}">Meal Name: {result.strMeal}</h1>
+          <p>Meal Instructions: {result.strInstructions}</p>
+        </div>
       ))}
     </div>
   );
 }
-MealDb.getInitialProps = async (ctx) => {
-  const res = await fetch("https://www.themealdb.com/api/json/v1/1/random.php");
-  const json = await res.json();
-  return { meals: json.meals, description: json.meals};
+Mealaxios.getInitialProps = async (ctx) => {
+  try {
+    const res = await axios.get(
+      "https://www.themealdb.com/api/json/v1/1/random.php"
+    );
+    const meals = res.data;
+    return { meals: meals.meals };
+  } catch (error) {
+    return { error };
+  }
 };
