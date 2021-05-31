@@ -42,11 +42,12 @@ export default function Home() {
         <a className="text-blue-900 pt-5" href="/posts/first-post">
           Check my Posts
         </a>
-        <li>
-        <a className="text-blue-900 pt-5" href="/mealdb">
-          Result of MealDB response
+        <br/>
+        Or
+        <br/>
+        <a className="text-blue-900 pt-5" href="/meal">
+          <span className="text-green-600 font-bold my-2">Click me to get random instructions of different foods </span>
         </a>
-        </li>
       </footer>
     </Layout>
   );

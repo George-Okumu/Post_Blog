@@ -8,10 +8,12 @@ const name = "MealDB";
 const name2 =
   "Welcome to Random Meal DB, where you get to know recipe instructions";
 
-export default function Mealaxios({ meals, error }) {
+export default function Meal({ meals, error }) {
+  // First display error
   if (error) {
     return <div>An error occurred. {error.message}</div>;
   }
+  // Return view if response is success
   return (
     <div className={styles.container}>
       <Head>
@@ -30,7 +32,7 @@ export default function Mealaxios({ meals, error }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>
-        {Mealaxios ? (
+        {Meal ? (
           <>
             <Image
               priority
@@ -62,15 +64,39 @@ export default function Mealaxios({ meals, error }) {
       <h1 className={styles.heading2Xl}>{name2}</h1>
       {/* Used map to itterate through the meals array response,  */}
       {meals.map((result) => (
-        <div>
-          <h1 key="{meals.idMeal}">Meal Name: {result.strMeal}</h1>
-          <p>Meal Instructions: {result.strInstructions}</p>
+        <div className="pt-20 flex justify-center">
+      <div class=" rounded overflow-hidden border w-full lg:w-6/12 md:w-6/12 bg-white mx-3 md:mx-0 lg:mx-0">
+    {/* <img class="w-full bg-cover" src="{result.strMealThumb}" /> */}
+    <img class="w-full bg-cover" src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&w=1000&q=80" />
+    <div class="px-3 pb-2">
+      <div class="pt-2">
+        <i class="far fa-heart cursor-pointer"></i>
+        <span class="text-sm text-gray-400 font-medium">Delicious One</span>
+      </div>
+      <div class="pt-1">
+        <div class="mb-2 text-sm">
+      <span class="font-medium mr-2 text-green-600 flex justify-center text-3xl">{result.strMeal}</span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <div class="mb-2 text-sm">
+      <span class="font-medium mr-2 text-purple-600">{result.strInstructions}</span>
+      </div>
+      </div>
+      <div class="text-sm mb-2 text-red-800 cursor-pointer font-medium flex justify-end my-8">View on Youtube: {result.strYoutube}</div>
+    </div>
+  </div>
         </div>
       ))}
     </div>
+    
   );
+  
 }
-Mealaxios.getInitialProps = async (ctx) => {
+
+// axios uses try and catch method for best response of data
+Meal.getInitialProps = async (ctx) => {
   try {
     const res = await axios.get(
       "https://www.themealdb.com/api/json/v1/1/random.php"
